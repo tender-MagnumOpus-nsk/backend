@@ -9,3 +9,12 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = ["name", "current", "max", "next"]
+
+
+class HintSerializer(serializers.Serializer):
+    query = serializers.CharField()
+
+
+class HintResponseSerializer(serializers.Serializer):
+    score = serializers.FloatField()
+    answer = serializers.CharField()

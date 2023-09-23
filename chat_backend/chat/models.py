@@ -30,6 +30,7 @@ class MessageFile(models.Model):
     question_num = models.IntegerField()
     name = models.CharField(max_length=500, db_index=True)
     file = models.FileField(upload_to="files/")
+    text = models.TextField(max_length=3000)
 
     def __str__(self):
         return self.name

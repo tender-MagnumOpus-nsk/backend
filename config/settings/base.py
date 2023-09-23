@@ -363,3 +363,8 @@ SPECTACULAR_SETTINGS = {
         {"url": "https://akarpov.ru", "description": "Production server"},
     ],
 }
+
+ML_HOST = "http://192.168.2.231:8000"
+REST_PROXY = {
+    "HOST": ML_HOST,
+}
