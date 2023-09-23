@@ -76,7 +76,7 @@ def send_message(id: str, question: str):
                     print(e)
             questions[question] = res_data
         else:
-            raise ValueError(res.status_code)
+            raise ValueError(res_q.status_code)
     channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(
         f"messages_{id}", {"type": "message", "data": {"data": res_data[:5]}}

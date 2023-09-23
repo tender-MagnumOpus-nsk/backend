@@ -20,7 +20,7 @@ class Message(models.Model):
     reply = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.data
+        return str(self.data)
 
     class Meta:
         ordering = ["created"]
@@ -30,7 +30,7 @@ class MessageFile(models.Model):
     question_num = models.IntegerField()
     name = models.CharField(max_length=500, db_index=True)
     file = models.FileField(upload_to="files/")
-    text = models.TextField(max_length=3000)
+    text = models.TextField(max_length=6000)
 
     def __str__(self):
         return self.name
