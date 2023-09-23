@@ -153,10 +153,13 @@ def main(arg1, arg2, arg3, arg4):
                         .replace("/", " ")
                         + ".pdf"
                     )
-                    pdfOutputFile = open(outputPDFDir + pdfFileName, "wb")
-                    pdfWriter.write(pdfOutputFile)
-                    pdfOutputFile.close()
-                    print("Created PDF file: " + outputPDFDir + pdfFileName)
+                    try:
+                        pdfOutputFile = open(outputPDFDir + pdfFileName, "wb")
+                        pdfWriter.write(pdfOutputFile)
+                        pdfOutputFile.close()
+                        print("Created PDF file: " + outputPDFDir + pdfFileName)
+                    except Exception as e:
+                        print(e)
 
             prevPageNum = newPageNum
             prevPageName = newPageName

@@ -1,6 +1,7 @@
-from django.urls import re_path
+from django.urls import path
 
+from chat_backend.chat.consumers import MessageConsumer
 
 websocket_urlpatterns = [
-    # re_path(r"ws/radio/", RadioConsumer.as_asgi()),
+    path("ws/messages/<str:id>", MessageConsumer.as_asgi()),
 ]

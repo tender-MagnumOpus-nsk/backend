@@ -89,6 +89,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "chat_backend.users",
+    "chat_backend.chat",
     "chat_backend.tickets",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
