@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
-from chat_backend.chat.api.serializers import SessionSerializer, DialogSerializer
+from chat_backend.chat.api.serializers import DialogSerializer, SessionSerializer
 from chat_backend.chat.models import Session
 
 

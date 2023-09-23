@@ -1,13 +1,13 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from drf_spectacular.utils import extend_schema
 from rest_framework_proxy.views import ProxyView
 
 from chat_backend.tickets.api.serializers import (
-    TicketSerializer,
-    HintSerializer,
     HintResponseSerializer,
+    HintSerializer,
+    TicketSerializer,
 )
 from chat_backend.tickets.services import get_ticket_data
 

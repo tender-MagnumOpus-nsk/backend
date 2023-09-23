@@ -1,9 +1,9 @@
-import PyPDF2
-import os
-import time
-import shutil
-import sys
 import argparse
+import os
+import shutil
+import time
+
+import PyPDF2
 
 ######################################################################
 # Split_PDF_Reports.py
@@ -125,7 +125,7 @@ def main(arg1, arg2, arg3, arg4):
                     print("Next Page...")
                     pdfWriter = PyPDF2.PdfFileWriter()
                     page_idx = 0
-                    if len(pkv)-1 < ind and pkv[ind-1] == pkv[ind+1]:
+                    if len(pkv) - 1 < ind and pkv[ind - 1] == pkv[ind + 1]:
                         pprevPageNum = prevPageNum - 1
                         pnewPageNum = newPageNum + 1
                     elif prevPageNum == newPageNum:
@@ -194,7 +194,7 @@ def main(arg1, arg2, arg3, arg4):
         os.unlink(targetPDFFile)
 
         if newPageName:
-            if deleteSourcePDF == True or deleteSourcePDF == "True":
+            if deleteSourcePDF or deleteSourcePDF == "True":
                 os.unlink(sourcePDFFile)
 
 

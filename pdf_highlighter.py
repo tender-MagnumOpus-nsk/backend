@@ -1,9 +1,8 @@
-# Import Libraries
-from typing import Tuple
-from io import BytesIO
-import os
 import argparse
+import os
 import re
+from io import BytesIO
+
 import fitz
 
 
@@ -24,7 +23,7 @@ def extract_info(input_file: str):
 
     # To Display File Info
     print("## File Information ##################################################")
-    print("\n".join("{}:{}".format(i, j) for i, j in output.items()))
+    print("\n".join(f"{i}:{j}" for i, j in output.items()))
     print("######################################################################")
 
     return True, output
@@ -38,8 +37,7 @@ def search_for_text(lines, search_str):
         # Find all matches within one line
         results = re.findall(search_str, line, re.IGNORECASE)
         # In case multiple matches within one line
-        for result in results:
-            yield result
+        yield from results
 
 
 def redact_matching_data(page, matched_values):
@@ -116,7 +114,7 @@ def process_data(
     input_file: str,
     output_file: str,
     search_str: str,
-    pages: Tuple = None,
+    pages: tuple = None,
     action: str = "Highlight",
 ):
     """
@@ -162,7 +160,7 @@ def process_data(
         f.write(output_buffer.getbuffer())
 
 
-def remove_highlght(input_file: str, output_file: str, pages: Tuple = None):
+def remove_highlght(input_file: str, output_file: str, pages: tuple = None):
     # Open the PDF
     pdfDoc = fitz.open(input_file)
     # Save the generated PDF to memory buffer
@@ -256,7 +254,7 @@ def is_valid_path(path):
     Validates the path inputted and checks whether it is a file path or a folder path
     """
     if not path:
-        raise ValueError(f"Invalid Path")
+        raise ValueError("Invalid Path")
     if os.path.isfile(path):
         return path
     elif os.path.isdir(path):
@@ -293,7 +291,8 @@ def parse_args():
         ],
         type=str,
         default="Highlight",
-        help="Choose whether to Redact or to Frame or to Highlight or to Squiggly or to Underline or to Strikeout or to Remove",
+        help="Choose whether to Redact or to Frame or to Highlight or to Squiggly or to Underline or to Strikeout or "
+        "to Remove",
     )
     parser.add_argument(
         "-p",
@@ -333,7 +332,7 @@ def parse_args():
     args = vars(parser.parse_args())
     # To Display The Command Line Arguments
     print("## Command Arguments #################################################")
-    print("\n".join("{}:{}".format(i, j) for i, j in args.items()))
+    print("\n".join(f"{i}:{j}" for i, j in args.items()))
     print("######################################################################")
     return args
 

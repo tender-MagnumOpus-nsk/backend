@@ -1,12 +1,12 @@
 from django.db import models
 
-from chat_backend.utils.files import user_file_upload_mixin
-from chat_backend.utils.generators import generate_charset
 from chat_backend.common.signals import (
     create_cropped_model_image,
     delete_cropped_model_image,
     update_cropped_model_image,
 )
+from chat_backend.utils.files import user_file_upload_mixin
+from chat_backend.utils.generators import generate_charset
 
 
 class BaseImageModel(models.Model):

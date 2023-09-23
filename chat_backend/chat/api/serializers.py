@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from chat_backend.chat.models import Session, Message
+from chat_backend.chat.models import Message, Session
 
 
 class SessionSerializer(serializers.ModelSerializer):

@@ -1,6 +1,6 @@
 import os
-
 from io import BytesIO
+
 from PIL import Image
 
 from chat_backend.users.models import User
