@@ -17,7 +17,7 @@ whitenoise = "^6.3.0"
 redis = "^4.4.0"
 celery = {extras = ["redis"], version = "^5.2.7"}
 django-celery-beat = "^2.4.0"
-flower = "^1.2.0"
+flower = "^2.0.1"
 django = "^4.1.5"
 django-structlog = "^4.0.1"
 django-environ = "^0.9.0"
